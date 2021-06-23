@@ -1,24 +1,22 @@
-from re import split
-from flask import Flask, render_template, redirect, request, Response, url_for
+
+from flask import Flask, render_template, redirect, request,  url_for
 import os
 import sqlite3
 import cv2
 import datetime, time
+import tensorflow as tf
 from keras.models import load_model
 from keras.preprocessing import image
-import tensorflow as tf
+
 import numpy as np
 from flask.helpers import flash
-from flask_ngrok import run_with_ngrok
+from werkzeug.wrappers import Response
 new_model = load_model('best_model_5A.hdf5')
 global capture,p
 capture = 0
 p = ''
 cl = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
-run_with_ngrok(app)
-
-
 app.secret_key = "abc526984"
 
 
