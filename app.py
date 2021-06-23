@@ -4,10 +4,9 @@ import os
 import sqlite3
 import cv2
 import datetime, time
-import tensorflow as tf
+import tensorflow
 from keras.models import load_model
 from keras.preprocessing import image
-
 import numpy as np
 from flask.helpers import flash
 from werkzeug.wrappers import Response
