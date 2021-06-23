@@ -1,0 +1,96 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("background.jpeg");
+	background-size: cover;
+	font-family: Open Sans;
+	}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25rem;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  background: rgba(56, 51, 51, 0.6);
+  border-radius: 0.625rem;
+}
+
+.login-box h1 {
+  margin: 0 0 1.875rem;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+img{
+	height: 120px;
+	width:180px;
+	margin-left: 70px;
+}
+.login-box .inputBox {
+  position: relative;
+}
+
+.login-box .inputBox input {
+  width: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.062rem;
+  margin-bottom: 1.875rem;
+  border: none;
+  border-bottom: 0.065rem solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .inputBox input:focus ~ label,
+.login-box .inputBox input:valid ~ label,
+.login-box .inputBox input:not([value=""]) ~ label {
+  top: -1.125rem;
+  left: 0;
+  color: #03a9f4;
+  font-size: 0.75rem;
+}
+
+.login-box input[type="submit"] {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #2FA8B0;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  border-radius: 0.312rem;
+  font-size: 1rem;
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="submit"]:hover {
+  background-color: #99ebff;
+}
+.inputBox a{
+	text-decoration: none;
+	cursor: pointer;
+	color: #3897f0;
+	font-family: Open Sans;
+	font-weight: normal;
+}
+.inputBox p{
+	text-decoration:none;
+	color: white;
+	font-size: 20px;
+}

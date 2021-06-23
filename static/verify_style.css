@@ -1,0 +1,99 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url("background.jpeg");
+	background-size: cover;
+	font-family: Open Sans;
+}
+.header {
+    overflow: hidden;
+    background-color: rgba(46, 64, 82, 0.7);
+    padding: 2px 5px;
+}
+.header img {
+  float: left;
+  width: 70px;
+  height: 70px;
+}
+
+.header h1 {
+  font-family: 'Comic sans MS', sans-serif;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  color: white;
+}
+
+.middle {
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.rules {
+  border-radius: 30px 100px;
+  background-color: rgba(28, 40, 51, 0.4);
+  border: dashed;
+  border-color: #212F3D;
+  border-width: 2px 4px;
+  border-radius: 40px;
+  padding: 20px; 
+  width: 700px;
+  height: 350px; 
+  position: absolute;
+      right: 20px;
+      top: 220px;
+}
+
+.rules p {
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
+.points p {
+  font-family: Helvetica, sans-serif;
+  text-align: left;
+  color: white;
+  font-size: 16px;
+}
+.points ion-icon {
+  font-size: 20px;
+  position: relative;
+  left: 1px;
+}
+
+.rules:hover {
+  background-color: rgba(33, 97, 140, 0.4);
+  border: 1px solid #777;
+}
+
+.box {
+  position: absolute;
+  top: 91%;
+  left: 43%;
+}
+
+.button {
+  background-color: rgba(128, 139, 150, 0.6);
+  border-radius: 25px;
+  color: white;
+  padding: 10px 50px 10px 34px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(39, 174, 96, 0.4);
+}
+ion-icon {
+  font-size: 30px;
+  padding: 0px;
+  position: absolute;
+  top: 8px;
+  left: 230px;
+}

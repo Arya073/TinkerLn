@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Verification Page</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='verify_style.css') }}">
+</head>
+<body>
+	<div class="header">
+    <img src="static/tinker_logo.png" alt="logo" />
+    <h1>Tinkerln</h1>
+  </div>
+  <div class="middle">
+    <h1>Why Children under 18 are not recommended <br> using certain Websites...</h1>
+  </div>
+  <div class="rules">
+  	<p>Social media can also pose risks. For children, these risks include:</p>
+  	<div class="points">
+  		<p><ion-icon name="checkmark"></ion-icon>Being exposed to inappropriate or upsetting content, like mean, aggressive, violent or sexual comments or images</p>
+  		<p><ion-icon name="checkmark"></ion-icon>Uploading inappropriate content, like embarrassing or provocative photos or videos of themselves or others</p>
+  		<p><ion-icon name="checkmark"></ion-icon>Sharing personal information with strangers – for example, phone numbers, date of birth or location</p>
+  		<p><ion-icon name="checkmark"></ion-icon>Data breaches, like having their data sold on to other organisations.</p>
+  		<p><ion-icon name="checkmark"></ion-icon>Cyberbullying exposure to too much targeted advertising and marketing</p>
+  	</div>
+  </div>
+	<div class="box">
+		<a href="{{ url_for('camera') }}" class="button">Verify Your Age<ion-icon name="arrow-round-forward"></ion-icon></a>
+	</div>
+
+
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
