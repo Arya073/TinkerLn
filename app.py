@@ -8,13 +8,14 @@ from tensorflow import keras
 import tensorflow
 from tensorflow.keras.models import load_model
 from flask.helpers import flash
+from tensorflow.python.keras.backend import not_equal
 
 global capture,p
 capture = 0
 p = ''
 cl = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
-new_model = load_model('best_model_5L.hdf5')
+new_model = load_model('best_model_5A.hdf5')
 
 app.secret_key = "abc526984"
 
@@ -23,6 +24,7 @@ def gen_frames():  # generate frame by frame from camera
     global capture,p
     ca = cv2.VideoCapture(0)
     while True:
+        
         success, frame = ca.read() 
         if success:
                
@@ -32,6 +34,8 @@ def gen_frames():  # generate frame by frame from camera
                 p = os.path.sep.join(['shots', "shot_{}.png".format(str(now).replace(":",''))])
                 
                 cv2.imwrite(p, frame)
+                #ca.release()
+                # return redirect('predict')
                 
             try:
                 ret, buffer = cv2.imencode('.jpg', cv2.flip(frame,1))
@@ -43,8 +47,8 @@ def gen_frames():  # generate frame by frame from camera
                 
         else:
             pass
-    ca.release()
-    cv2.destroyAllWindows()
+        ca.release()
+        cv2.destroyAllWindows()
     
 
 @app.route('/')
@@ -145,7 +149,7 @@ def takeimage():
         
     # return render_template("camera.html")
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
     global p
     error = None
@@ -170,20 +174,23 @@ def predict():
         for (x, y, w, h) in faces:
             #cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
             faces = img[y:y + h, x:x + w]
-            
-        print(faces.shape)
-        faces = cv2.resize(faces, dsize = (227,227))
-        print(faces.shape)
+        if isinstance(faces, np.ndarray):    
+            print(faces.shape)
+            faces = cv2.resize(faces, dsize = (227,227))
+            print(faces.shape)
 
-        test_image = np.array([faces], dtype=np.float16) / 255.0
-        result = new_model.predict(test_image)
-        result = list(result)
-        print(result)
-        print(categories[np.argmax(result)])
-        if categories[np.argmax(result)] == '2':
-            return render_template('chat.html')
+            test_image = np.array([faces], dtype=np.float16) / 255.0
+            result = new_model.predict(test_image)
+            result = list(result)
+            print(result)
+            print(categories[np.argmax(result)])
+            if categories[np.argmax(result)] == '2':
+                return render_template('chat.html')
+            else:
+                error = "Oops!!!....You are not authorised to use this website"
+                return render_template('camera.html',error = error)
         else:
-            error = "Oops!!!....You are not authorised to use this website"
+            error = "No face found!!! Capture again"
             return render_template('camera.html',error = error)
     return render_template('camera.html')
 
